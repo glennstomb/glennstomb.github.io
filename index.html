@@ -1,0 +1,1262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水多多传媒 | 影像内容制作与品牌叙事 - 让每个故事都水润生动</title>
+<meta name="description" content="水多多传媒是一家专注品牌影像、短视频内容与视觉叙事的视频制作公司，为不同行业的品牌提供从策划到成片的一站式内容解决方案。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0b1726;
+  --ink-2:#132538;
+  --ink-3:#1b334b;
+  --water:#2f9df4;
+  --water-2:#5fc4ff;
+  --water-3:#a8e4ff;
+  --deep:#0a2a45;
+  --foam:#eaf7ff;
+  --sand:#f4f9fd;
+  --line:rgba(47,157,244,.16);
+  --line-2:rgba(255,255,255,.1);
+  --txt:#17324a;
+  --txt-2:#4a6a84;
+  --txt-3:#7d97ac;
+  --radius:18px;
+  --shadow:0 22px 60px -28px rgba(11,42,69,.45);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--txt);
+  background:var(--sand);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+ul{list-style:none}
+::selection{background:var(--water-2);color:#04263d}
+
+/* ---------- 通用容器 ---------- */
+.wrap{width:min(1180px,calc(100% - 48px));margin-inline:auto}
+.sec{padding:96px 0;position:relative}
+.sec-head{max-width:760px;margin-bottom:56px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--water);font-weight:700;
+  padding:7px 15px;border-radius:100px;
+  background:rgba(47,157,244,.09);
+  border:1px solid rgba(47,157,244,.18);
+  margin-bottom:20px;
+}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--water);box-shadow:0 0 0 4px rgba(47,157,244,.16)}
+h2{
+  font-size:clamp(28px,3.5vw,44px);
+  line-height:1.25;letter-spacing:-.02em;
+  font-weight:800;color:var(--ink);
+}
+h3{font-size:20px;font-weight:700;color:var(--ink);line-height:1.4}
+.lead{color:var(--txt-2);font-size:17px;margin-top:18px;max-width:640px}
+
+/* ---------- 导航 ---------- */
+header.top{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  transition:background .35s,box-shadow .35s,backdrop-filter .35s;
+  padding:16px 0;
+}
+header.top.scrolled{
+  background:rgba(244,249,253,.86);
+  backdrop-filter:blur(16px);
+  box-shadow:0 1px 0 rgba(11,42,69,.07),0 10px 34px -22px rgba(11,42,69,.5);
+  padding:10px 0;
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:19px;letter-spacing:-.01em;color:var(--ink)}
+.brand-mark{
+  width:42px;height:42px;border-radius:13px;flex:0 0 auto;
+  background:linear-gradient(145deg,#2f9df4,#5fc4ff 55%,#a8e4ff);
+  display:grid;place-items:center;box-shadow:0 10px 26px -12px rgba(47,157,244,.85);
+  position:relative;overflow:hidden;
+}
+.brand-mark svg{width:24px;height:24px}
+.brand small{display:block;font-size:10.5px;font-weight:600;color:var(--txt-3);letter-spacing:.18em;margin-top:-4px}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{
+  font-size:14.5px;font-weight:600;color:var(--txt-2);
+  padding:9px 15px;border-radius:100px;transition:.25s;white-space:nowrap;
+}
+.nav-links a:hover{color:var(--water);background:rgba(47,157,244,.08)}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--water),#3fb2ff);
+  color:#fff!important;font-size:14.5px;font-weight:700;
+  padding:11px 22px!important;border-radius:100px;
+  box-shadow:0 14px 30px -14px rgba(47,157,244,.9);
+  transition:transform .25s,box-shadow .25s;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 20px 38px -14px rgba(47,157,244,.95);background:linear-gradient(135deg,#2b93e8,#4fb7ff)}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:#fff;align-items:center;justify-content:center;cursor:pointer}
+.burger span{display:block;width:18px;height:2px;background:var(--ink);position:relative;border-radius:2px}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);border-radius:2px}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+
+/* ---------- 英雄区 ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  padding:168px 0 110px;
+  background:
+    radial-gradient(1200px 600px at 78% -8%,rgba(95,196,255,.28),transparent 62%),
+    radial-gradient(900px 520px at 8% 12%,rgba(47,157,244,.16),transparent 60%),
+    linear-gradient(180deg,#f4f9fd 0%,#eaf6ff 58%,#f4f9fd 100%);
+}
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:-2px;height:140px;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 140' preserveAspectRatio='none'><path d='M0 78 C240 18 420 118 720 78 C1020 38 1200 118 1440 68 L1440 140 L0 140 Z' fill='%23f4f9fd'/></svg>") no-repeat center/cover;
+  opacity:.9;pointer-events:none;
+}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+.hero h1{
+  font-size:clamp(44px,6.4vw,80px);
+  line-height:1.05;letter-spacing:-.035em;font-weight:900;color:var(--ink);
+  margin:22px 0 0;
+}
+.hero h1 .grad{
+  background:linear-gradient(100deg,#1f8ee0,#4fc0ff 42%,#7ad4ff 72%,#2f9df4);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{
+  font-size:clamp(17px,1.6vw,20px);color:var(--txt-2);
+  margin-top:26px;max-width:560px;font-weight:500;
+}
+.hero-sub strong{color:var(--ink);font-weight:700}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 28px;border-radius:100px;font-weight:700;font-size:15.5px;
+  transition:transform .25s,box-shadow .25s,background .25s;cursor:pointer;border:0;
+  font-family:inherit;
+}
+.btn-primary{background:linear-gradient(135deg,#1f8ee0,#45b8ff);color:#fff;box-shadow:0 18px 40px -18px rgba(31,142,224,.95)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 26px 50px -20px rgba(31,142,224,1)}
+.btn-ghost{background:#fff;color:var(--ink);border:1px solid rgba(11,42,69,.12);box-shadow:0 10px 26px -20px rgba(11,42,69,.6)}
+.btn-ghost:hover{transform:translateY(-3px);border-color:rgba(47,157,244,.5);color:var(--water)}
+.btn svg{width:17px;height:17px}
+
+.hero-stats{display:flex;flex-wrap:wrap;gap:34px;margin-top:46px}
+.stat b{font-size:30px;font-weight:900;color:var(--ink);letter-spacing:-.02em;display:block;line-height:1.1}
+.stat b em{font-style:normal;font-size:16px;color:var(--water);margin-left:2px;font-weight:800}
+.stat span{font-size:13px;color:var(--txt-3);font-weight:600;letter-spacing:.04em}
+
+/* 英雄区视觉 */
+.hero-visual{position:relative}
+.player{
+  position:relative;border-radius:26px;overflow:hidden;
+  background:linear-gradient(160deg,#0b2a45,#123a5c 50%,#0a2a45);
+  box-shadow:0 40px 90px -40px rgba(10,42,69,.85),0 0 0 1px rgba(255,255,255,.08) inset;
+  aspect-ratio:16/11;
+  display:grid;place-items:center;
+}
+.player .water-layer{position:absolute;inset:0;overflow:hidden}
+.player .water-layer svg{position:absolute;left:-20%;bottom:-10%;width:140%;height:auto;opacity:.55}
+.player .water-layer svg.b{opacity:.32;animation:floaty 9s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.play-btn{
+  width:86px;height:86px;border-radius:50%;
+  background:rgba(255,255,255,.14);backdrop-filter:blur(10px);
+  display:grid;place-items:center;cursor:pointer;position:relative;z-index:3;
+  border:1px solid rgba(255,255,255,.35);transition:.3s;
+}
+.play-btn:hover{transform:scale(1.07);background:rgba(255,255,255,.24)}
+.play-btn svg{width:28px;height:28px;fill:#fff;margin-left:4px}
+.play-ring{
+  position:absolute;width:86px;height:86px;border-radius:50%;
+  border:1px solid rgba(168,228,255,.6);animation:ring 2.8s ease-out infinite;z-index:2;
+}
+.play-ring.d2{animation-delay:1.4s}
+@keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.85);opacity:0}}
+.player-meta{
+  position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:4;
+  background:linear-gradient(to top,rgba(5,25,42,.92),rgba(5,25,42,.28) 62%,transparent);
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+}
+.player-meta .t{color:#fff;font-weight:700;font-size:14.5px}
+.player-meta .t small{display:block;font-weight:500;font-size:11.5px;color:#a8e4ff;letter-spacing:.12em;margin-top:3px}
+.badge-live{
+  display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;
+  color:#7ad4ff;border:1px solid rgba(122,212,255,.4);padding:5px 11px;border-radius:100px;
+  background:rgba(122,212,255,.08);white-space:nowrap;
+}
+.badge-live i{width:6px;height:6px;border-radius:50%;background:#7ad4ff;animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+.float-card{
+  position:absolute;background:#fff;border-radius:16px;padding:14px 18px;
+  box-shadow:0 24px 50px -24px rgba(11,42,69,.55);
+  display:flex;align-items:center;gap:12px;z-index:6;
+  border:1px solid rgba(47,157,244,.12);
+}
+.float-card.a{left:-26px;bottom:56px;animation:floaty 7s ease-in-out infinite}
+.float-card.b{right:-18px;top:36px;animation:floaty 8.5s ease-in-out infinite .8s}
+.float-card .ic{
+  width:38px;height:38px;border-radius:11px;display:grid;place-items:center;flex:0 0 auto;
+  background:linear-gradient(145deg,#eaf7ff,#cceaff);
+}
+.float-card .ic svg{width:19px;height:19px;stroke:#1f8ee0;fill:none;stroke-width:1.9}
+.float-card b{font-size:14px;color:var(--ink);display:block;line-height:1.3}
+.float-card span{font-size:11.5px;color:var(--txt-3);font-weight:600}
+
+/* ---------- 品牌口号跑马灯 ---------- */
+.ticker{
+  background:var(--ink);color:#fff;padding:0;overflow:hidden;
+  border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);
+}
+.ticker-track{display:flex;gap:0;width:max-content;animation:scrollx 34s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-track span{
+  display:inline-flex;align-items:center;gap:26px;
+  padding:20px 26px;font-size:14.5px;font-weight:700;letter-spacing:.14em;
+  color:#dff2ff;white-space:nowrap;
+}
+.ticker-track span::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--water-2);flex:0 0 auto}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* ---------- 关于 ---------- */
+.about{background:linear-gradient(180deg,#fff,#f7fbfe)}
+.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:start}
+.about-visual{position:relative}
+.about-art{
+  border-radius:24px;overflow:hidden;background:linear-gradient(160deg,#0d3050,#164a75);
+  padding:34px;position:relative;box-shadow:var(--shadow);
+}
+.about-art .grid-lines{position:absolute;inset:0;opacity:.22;
+  background-image:linear-gradient(rgba(168,228,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(168,228,255,.5) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+.about-art .quote{position:relative;z-index:2;color:#eaf7ff;font-size:22px;font-weight:700;line-height:1.6;letter-spacing:-.01em}
+.about-art .quote em{font-style:normal;color:#7ad4ff}
+.about-art .sig{margin-top:26px;display:flex;align-items:center;gap:12px;position:relative;z-index:2}
+.about-art .sig .av{width:40px;height:40px;border-radius:50%;background:linear-gradient(145deg,#5fc4ff,#2f9df4);display:grid;place-items:center;font-weight:800;color:#08283f;font-size:15px}
+.about-art .sig b{display:block;color:#fff;font-size:14px}
+.about-art .sig span{color:#8fbdd8;font-size:12px}
+.about-mini{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.mini-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;transition:.3s}
+.mini-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -30px rgba(11,42,69,.5);border-color:rgba(47,157,244,.35)}
+.mini-card b{font-size:26px;font-weight:900;color:var(--water);display:block;line-height:1.1;letter-spacing:-.02em}
+.mini-card span{font-size:12.5px;color:var(--txt-3);font-weight:600}
+
+.about-copy p{color:var(--txt-2);font-size:16px;margin-top:18px}
+.about-copy p strong{color:var(--ink);font-weight:700}
+.value-list{margin-top:30px;display:grid;gap:16px}
+.value-item{display:flex;gap:16px;padding:18px 20px;border-radius:16px;background:#fff;border:1px solid var(--line);transition:.3s}
+.value-item:hover{border-color:rgba(47,157,244,.36);box-shadow:0 20px 40px -32px rgba(11,42,69,.6);transform:translateX(4px)}
+.value-item .ic{width:42px;height:42px;border-radius:12px;background:linear-gradient(145deg,#eaf7ff,#cfeaff);display:grid;place-items:center;flex:0 0 auto}
+.value-item .ic svg{width:21px;height:21px;stroke:#1f8ee0;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.value-item h3{font-size:16px;margin-bottom:4px}
+.value-item p{font-size:13.5px;color:var(--txt-2);margin:0!important;line-height:1.65}
+
+/* ---------- 服务 ---------- */
+.services{background:#f4f9fd;position:relative}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc-card{
+  background:#fff;border-radius:20px;padding:32px 28px;
+  border:1px solid var(--line);position:relative;overflow:hidden;
+  transition:transform .35s,box-shadow .35s,border-color .35s;
+}
+.svc-card::before{
+  content:"";position:absolute;inset:auto -40% -60% auto;width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(95,196,255,.22),transparent 68%);
+  opacity:0;transition:opacity .4s;
+}
+.svc-card:hover{transform:translateY(-8px);box-shadow:0 34px 66px -40px rgba(11,42,69,.55);border-color:rgba(47,157,244,.4)}
+.svc-card:hover::before{opacity:1}
+.svc-num{font-size:12px;font-weight:800;letter-spacing:.2em;color:var(--water);margin-bottom:20px}
+.svc-ic{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;margin-bottom:20px;
+  background:linear-gradient(145deg,#eaf7ff,#d3ecff);position:relative;z-index:1}
+.svc-ic svg{width:25px;height:25px;stroke:#1f8ee0;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.svc-card h3{position:relative;z-index:1;margin-bottom:10px}
+.svc-card p{font-size:14px;color:var(--txt-2);position:relative;z-index:1}
+.svc-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;position:relative;z-index:1}
+.svc-tags i{font-style:normal;font-size:11.5px;font-weight:600;color:var(--txt-2);background:#f0f7fc;border:1px solid var(--line);padding:4px 10px;border-radius:100px}
+
+/* ---------- 数据条 ---------- */
+.metrics{background:linear-gradient(160deg,#0a2a45,#0f3a5c 48%,#0a2a45);color:#fff;position:relative;overflow:hidden}
+.metrics::before{content:"";position:absolute;inset:0;opacity:.16;
+  background-image:radial-gradient(circle at 20% 20%,rgba(122,212,255,.6),transparent 42%),radial-gradient(circle at 84% 76%,rgba(95,196,255,.55),transparent 46%);}
+.metrics .wrap{position:relative;z-index:2}
+.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;text-align:center}
+.metric b{font-size:clamp(34px,4.4vw,52px);font-weight:900;letter-spacing:-.03em;line-height:1;
+  background:linear-gradient(120deg,#fff,#a8e4ff);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+.metric b em{font-style:normal;font-size:.5em;color:#7ad4ff;-webkit-text-fill-color:#7ad4ff}
+.metric span{display:block;margin-top:12px;font-size:13.5px;color:#a9c9dd;font-weight:600;letter-spacing:.05em}
+
+/* ---------- 作品 ---------- */
+.works{background:#fff}
+.filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.filter-bar button{
+  font-family:inherit;font-size:13.5px;font-weight:700;color:var(--txt-2);
+  background:#f2f8fd;border:1px solid var(--line);padding:9px 18px;border-radius:100px;cursor:pointer;transition:.25s;
+}
+.filter-bar button:hover{color:var(--water);border-color:rgba(47,157,244,.4)}
+.filter-bar button.active{background:linear-gradient(135deg,#1f8ee0,#45b8ff);color:#fff;border-color:transparent;box-shadow:0 12px 26px -14px rgba(31,142,224,.9)}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.work-card{
+  border-radius:20px;overflow:hidden;position:relative;background:#0d3050;
+  border:1px solid var(--line);transition:transform .4s,box-shadow .4s;
+  cursor:pointer;
+}
+.work-card:hover{transform:translateY(-8px);box-shadow:0 40px 70px -44px rgba(11,42,69,.8)}
+.work-thumb{aspect-ratio:4/3;position:relative;display:grid;place-items:center;overflow:hidden}
+.work-thumb svg.bg{position:absolute;inset:0;width:100%;height:100%}
+.work-thumb .play-s{
+  width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.4);display:grid;place-items:center;position:relative;z-index:3;
+  opacity:0;transform:scale(.8);transition:.35s;
+}
+.work-card:hover .play-s{opacity:1;transform:scale(1)}
+.work-thumb .play-s svg{width:20px;height:20px;fill:#fff;margin-left:2px}
+.work-thumb .dur{
+  position:absolute;right:12px;bottom:12px;z-index:3;font-size:11.5px;font-weight:700;color:#fff;
+  background:rgba(5,25,42,.7);backdrop-filter:blur(6px);padding:3px 9px;border-radius:7px;
+}
+.work-body{padding:20px 22px 24px;background:#fff}
+.work-body .cat{font-size:11.5px;font-weight:700;color:var(--water);letter-spacing:.1em;text-transform:uppercase}
+.work-body h3{font-size:17px;margin-top:7px;letter-spacing:-.01em}
+.work-body p{font-size:13px;color:var(--txt-3);margin-top:6px}
+
+/* ---------- 流程 ---------- */
+.process{background:linear-gradient(180deg,#f4f9fd,#fff)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative}
+.steps::before{
+  content:"";position:absolute;top:38px;left:6%;right:6%;height:2px;
+  background:linear-gradient(90deg,rgba(47,157,244,.05),rgba(47,157,244,.4),rgba(47,157,244,.05));
+}
+.step{position:relative;z-index:2;text-align:center;padding:0 8px}
+.step .n{
+  width:76px;height:76px;border-radius:50%;margin:0 auto 22px;display:grid;place-items:center;
+  background:#fff;border:1px solid rgba(47,157,244,.28);font-size:22px;font-weight:900;color:var(--water);
+  box-shadow:0 16px 34px -24px rgba(47,157,244,.9);transition:.35s;
+}
+.step:hover .n{background:linear-gradient(145deg,#1f8ee0,#4fc0ff);color:#fff;border-color:transparent;transform:translateY(-5px)}
+.step h3{font-size:16.5px;margin-bottom:8px}
+.step p{font-size:13.5px;color:var(--txt-2)}
+
+/* ---------- 团队 ---------- */
+.team{background:#fff}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.member{border-radius:20px;overflow:hidden;background:#f7fbfe;border:1px solid var(--line);transition:.35s}
+.member:hover{transform:translateY(-6px);box-shadow:0 30px 60px -38px rgba(11,42,69,.55);border-color:rgba(47,157,244,.34)}
+.member .ava{aspect-ratio:1/1;position:relative;overflow:hidden;display:grid;place-items:center}
+.member .ava svg.face{width:100%;height:100%}
+.member .info{padding:18px 20px 22px}
+.member .info h3{font-size:16px}
+.member .info span{font-size:12.5px;color:var(--water);font-weight:700;display:block;margin-top:2px}
+.member .info p{font-size:12.5px;color:var(--txt-3);margin-top:10px;line-height:1.6}
+
+/* ---------- 社区 ---------- */
+.community{background:linear-gradient(165deg,#0a2a45,#0e3959 55%,#0a2a45);color:#fff;position:relative;overflow:hidden}
+.community::after{content:"";position:absolute;inset:auto -10% -50% auto;width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(95,196,255,.28),transparent 66%);pointer-events:none}
+.community .wrap{position:relative;z-index:2}
+.community h2{color:#fff}
+.community .lead{color:#a9c9dd}
+.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+.post{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:26px;transition:.35s;backdrop-filter:blur(4px)}
+.post:hover{background:rgba(255,255,255,.075);transform:translateY(-5px);border-color:rgba(122,212,255,.34)}
+.post .head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.post .av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:14px;color:#06283f}
+.post b{color:#fff;font-size:14px;display:block}
+.post .head span{font-size:11.5px;color:#8fbdd8}
+.post p{font-size:14px;color:#c3dcec;line-height:1.75}
+.post .foot{display:flex;gap:18px;margin-top:18px;font-size:12px;color:#7fa8c2;font-weight:600}
+.post .foot i{font-style:normal;display:inline-flex;align-items:center;gap:6px}
+.post .foot svg{width:14px;height:14px;stroke:#7ad4ff;fill:none;stroke-width:1.8}
+.join-strip{
+  margin-top:44px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px;
+  background:rgba(122,212,255,.08);border:1px solid rgba(122,212,255,.24);border-radius:20px;padding:26px 32px;
+}
+.join-strip b{font-size:18px;color:#fff;display:block}
+.join-strip span{font-size:13.5px;color:#a9c9dd}
+
+/* ---------- 价格 ---------- */
+.pricing{background:var(--sand)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.price{
+  background:#fff;border-radius:22px;padding:34px 30px;border:1px solid var(--line);
+  display:flex;flex-direction:column;transition:.35s;position:relative;
+}
+.price:hover{transform:translateY(-6px);box-shadow:0 36px 66px -42px rgba(11,42,69,.55)}
+.price.featured{border-color:rgba(47,157,244,.55);box-shadow:0 30px 64px -38px rgba(47,157,244,.75)}
+.price.featured::after{
+  content:"最受欢迎";position:absolute;top:20px;right:20px;font-size:11px;font-weight:800;color:#fff;
+  background:linear-gradient(135deg,#1f8ee0,#45b8ff);padding:5px 12px;border-radius:100px;letter-spacing:.05em;
+}
+.price h3{font-size:18px}
+.price .desc{font-size:13px;color:var(--txt-3);margin-top:6px;min-height:38px}
+.price .amt{margin:22px 0 4px;font-size:38px;font-weight:900;color:var(--ink);letter-spacing:-.03em;line-height:1}
+.price .amt small{font-size:14px;font-weight:600;color:var(--txt-3);letter-spacing:0;margin-left:4px}
+.price ul{margin:24px 0 28px;display:grid;gap:11px;flex:1}
+.price li{font-size:13.5px;color:var(--txt-2);display:flex;gap:10px;align-items:flex-start}
+.price li svg{width:16px;height:16px;flex:0 0 auto;margin-top:4px;stroke:#2f9df4;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.price .btn{width:100%;justify-content:center}
+
+/* ---------- FAQ ---------- */
+.faq{background:#fff}
+.faq-list{max-width:840px;margin-inline:auto;display:grid;gap:12px}
+.faq-item{border:1px solid var(--line);border-radius:16px;background:#fbfdff;overflow:hidden;transition:.3s}
+.faq-item.open{border-color:rgba(47,157,244,.42);box-shadow:0 22px 44px -36px rgba(11,42,69,.6);background:#fff}
+.faq-q{
+  width:100%;text-align:left;background:none;border:0;font-family:inherit;cursor:pointer;
+  padding:20px 24px;font-size:15.5px;font-weight:700;color:var(--ink);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.faq-q .pm{width:26px;height:26px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;background:#eaf7ff;transition:.3s}
+.faq-q .pm svg{width:13px;height:13px;stroke:#1f8ee0;fill:none;stroke-width:2.6;stroke-linecap:round}
+.faq-item.open .pm{background:linear-gradient(135deg,#1f8ee0,#45b8ff);transform:rotate(45deg)}
+.faq-item.open .pm svg{stroke:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-a p{padding:0 24px 22px;font-size:14px;color:var(--txt-2);line-height:1.8}
+
+/* ---------- CTA ---------- */
+.cta-band{background:linear-gradient(150deg,#0a2a45,#124a72 50%,#0a2a45);color:#fff;position:relative;overflow:hidden}
+.cta-band::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(700px 340px at 82% 20%,rgba(122,212,255,.3),transparent 62%);}
+.cta-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.cta-inner h2{color:#fff}
+.cta-inner p{color:#a9c9dd;margin-top:16px;font-size:16px;max-width:480px}
+.contact-form{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:30px;backdrop-filter:blur(10px)}
+.contact-form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:12px;font-weight:700;color:#a9c9dd;margin-bottom:7px;letter-spacing:.06em}
+.field input,.field select,.field textarea{
+  width:100%;font-family:inherit;font-size:14px;color:#fff;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:11px;
+  padding:12px 14px;outline:none;transition:.25s;
+}
+.field input::placeholder,.field textarea::placeholder{color:#7fa8c2}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#7ad4ff;background:rgba(255,255,255,.11);box-shadow:0 0 0 4px rgba(122,212,255,.12)}
+.field select option{color:#0b1726}
+.field textarea{resize:vertical;min-height:86px}
+.contact-form .btn{width:100%;justify-content:center;margin-top:6px}
+.form-note{font-size:11.5px;color:#7fa8c2;text-align:center;margin-top:12px}
+.form-ok{display:none;margin-top:14px;font-size:13.5px;color:#7ad4ff;text-align:center;font-weight:600}
+.form-ok.show{display:block}
+
+/* ---------- 页脚 ---------- */
+footer{background:#071d31;color:#8fb4cb;padding:64px 0 30px;position:relative;overflow:hidden}
+footer::before{content:"";position:absolute;inset:0;opacity:.1;
+  background-image:radial-gradient(circle at 88% 10%,rgba(122,212,255,.9),transparent 40%)}
+.foot-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-brand .brand{color:#fff;margin-bottom:16px}
+.foot-brand .brand small{color:#6f95ae}
+.foot-brand p{font-size:13.5px;max-width:300px;line-height:1.8}
+.foot-social{display:flex;gap:10px;margin-top:20px}
+.foot-social a{width:38px;height:38px;border-radius:11px;border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;transition:.28s}
+.foot-social a:hover{background:rgba(122,212,255,.14);border-color:rgba(122,212,255,.44);transform:translateY(-3px)}
+.foot-social svg{width:17px;height:17px;stroke:#8fb4cb;fill:none;stroke-width:1.8;transition:.28s}
+.foot-social a:hover svg{stroke:#7ad4ff}
+footer h4{color:#fff;font-size:13.5px;font-weight:700;letter-spacing:.08em;margin-bottom:16px}
+footer ul{display:grid;gap:10px}
+footer ul a{font-size:13.5px;transition:.22s}
+footer ul a:hover{color:#7ad4ff}
+.foot-bottom{position:relative;z-index:2;display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;padding-top:26px;font-size:12.5px;color:#6f95ae}
+.foot-bottom .links{display:flex;gap:20px}
+.foot-bottom .links a:hover{color:#7ad4ff}
+
+/* ---------- 滚动动画 ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- 响应式 ---------- */
+@media(max-width:1024px){
+  .hero-grid,.about-grid,.cta-inner{grid-template-columns:1fr;gap:44px}
+  .svc-grid,.work-grid,.post-grid,.price-grid{grid-template-columns:repeat(2,1fr)}
+  .metric-grid{grid-template-columns:repeat(2,1fr);gap:36px}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr);gap:34px}
+  .steps::before{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .hero-visual{max-width:560px;margin-inline:auto;width:100%}
+}
+@media(max-width:780px){
+  .nav-links{
+    position:fixed;inset:72px 16px auto 16px;flex-direction:column;align-items:stretch;
+    background:#fff;border-radius:18px;padding:14px;box-shadow:0 30px 60px -30px rgba(11,42,69,.6);
+    border:1px solid var(--line);gap:4px;display:none;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 16px}
+  .burger{display:flex}
+  .sec{padding:70px 0}
+  .hero{padding:130px 0 84px}
+  .svc-grid,.work-grid,.post-grid,.price-grid,.team-grid{grid-template-columns:1fr}
+  .float-card.a{left:-8px;bottom:-16px}
+  .float-card.b{right:-6px;top:-18px}
+  .join-strip{flex-direction:column;align-items:flex-start}
+  .contact-form .row{grid-template-columns:1fr}
+  .hero-stats{gap:24px}
+  .stat b{font-size:26px}
+}
+@media(max-width:520px){
+  .wrap{width:calc(100% - 32px)}
+  .foot-grid{grid-template-columns:1fr}
+  .hero-visual .player{aspect-ratio:4/3}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="水多多传媒首页">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3.2c3.2 3.4 5.6 6.1 5.6 9.1a5.6 5.6 0 1 1-11.2 0c0-3 2.4-5.7 5.6-9.1Z" fill="#fff" opacity=".95"/>
+          <path d="M9.4 13.6c.7 1.5 2 2.3 3.6 2.3" stroke="#2f9df4" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span>水多多传媒<small>WATERFILM MEDIA</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">关于我们</a>
+      <a href="#services">服务能力</a>
+      <a href="#works">作品案例</a>
+      <a href="#process">合作流程</a>
+      <a href="#community">社区动态</a>
+      <a href="#pricing">合作方案</a>
+      <a href="#contact" class="nav-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg>
+        聊个创意
+      </a>
+    </nav>
+    <button class="burger" id="burger" aria-label="打开导航"><span></span></button>
+  </div>
+</header>
+
+<!-- 英雄区 -->
+<section class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="dot"></span>品牌影像 · 内容叙事 · 社区共创</span>
+      <h1>水多多传媒<br><span class="grad">让每一个故事，水润生动。</span></h1>
+      <p class="hero-sub">我们是一家专注<strong>品牌影像与短视频内容</strong>的制作公司。从一句洞察到成片上线，水多多传媒用灵动的镜头语言，把品牌想说的话，变成观众愿意看完的画面。</p>
+      <div class="hero-actions">
+        <a href="#works" class="btn btn-primary">
+          看看我们的作品
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>
+          预约沟通
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b data-count="860">0<em>+</em></b><span>累计交付视频</span></div>
+        <div class="stat"><b data-count="210">0<em>+</em></b><span>合作品牌客户</span></div>
+        <div class="stat"><b data-count="12">0<em>年</em></b><span>内容制作经验</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="player">
+        <div class="water-layer" aria-hidden="true">
+          <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 250 C100 200 160 300 260 250 C360 200 430 300 600 240 L600 400 L0 400 Z" fill="#124a75" opacity=".85"/>
+          </svg>
+          <svg class="b" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 290 C120 250 190 330 300 285 C410 240 490 320 600 275 L600 400 L0 400 Z" fill="#1f8ee0" opacity=".7"/>
+          </svg>
+        </div>
+        <div class="play-ring"></div>
+        <div class="play-ring d2"></div>
+        <div class="play-btn" role="button" tabindex="0" aria-label="播放品牌片">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="player-meta">
+          <div class="t">品牌形象片《流动的城市》<small>WATERFILM ORIGINAL · 2024</small></div>
+          <span class="badge-live"><i></i>4K 展示</span>
+        </div>
+      </div>
+      <div class="float-card a">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+        <div><b>脚本 48 小时出稿</b><span>创意不等待</span></div>
+      </div>
+      <div class="float-card b">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div><b>成片平均播放 120w+</b><span>内容有回响</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 跑马灯 -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>品牌影像</span><span>短视频内容</span><span>视觉叙事</span><span>广告片制作</span><span>社区共创</span><span>直播内容</span><span>创意策划</span><span>后期制作</span>
+    <span>品牌影像</span><span>短视频内容</span><span>视觉叙事</span><span>广告片制作</span><span>社区共创</span><span>直播内容</span><span>创意策划</span><span>后期制作</span>
+  </div>
+</div>
+
+<!-- 关于 -->
+<section class="sec about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-visual reveal">
+      <div class="about-art">
+        <div class="grid-lines"></div>
+        <p class="quote">“影像不是把话说满，<br>而是<em>留一点水汽</em>，<br>让观众自己看见光。”</p>
+        <div class="sig">
+          <div class="av">水</div>
+          <div><b>林见川</b><span>水多多传媒 · 联合创始人 / 内容总监</span></div>
+        </div>
+      </div>
+      <div class="about-mini">
+        <div class="mini-card"><b>100%</b><span>品牌定制脚本</span></div>
+        <div class="mini-card"><b>7×12h</b><span>项目响应机制</span></div>
+        <div class="mini-card"><b>36</b><span>覆盖行业类型</span></div>
+        <div class="mini-card"><b>4.9<em>/5</em></b><span>客户满意度</span></div>
+      </div>
+    </div>
+    <div class="about-copy reveal">
+      <span class="eyebrow"><span class="dot"></span>关于水多多传媒</span>
+      <h2>把内容做成水：<br>有形状，也能适应每一种容器</h2>
+      <p>水多多传媒成立于影像内容需求爆发的年代。我们相信，好的视频内容应该像水一样——既有清晰的方向感，也能贴合不同品牌的形状。十二年来，团队从一支小型摄制组，成长为覆盖策划、拍摄、后期、投放与社区运营的完整内容团队。</p>
+      <p>我们服务过消费品牌、文旅目的地、科技公司、餐饮连锁、教育与生活方式客户，也持续运营着一个开放的创作者社区。<strong>在这里，视频不只是交付物，而是品牌与人之间长期对话的方式。</strong></p>
+      <div class="value-list">
+        <div class="value-item">
+          <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div><h3>快，但有分寸</h3><p>标准化协作流程，让创意在合理节奏内落地，不牺牲质感。</p></div>
+        </div>
+        <div class="value-item">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <div><h3>每个项目都当作品</h3><p>从脚本到调色，我们坚持可被反复观看的画面标准。</p></div>
+        </div>
+        <div class="value-item">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg></div>
+          <div><h3>与社区一起生长</h3><p>开放的创作者社区，让每一次项目沉淀为可分享的经验。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 服务 -->
+<section class="sec services" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>服务能力</span>
+      <h2>从一句洞察，到一支能传播的片子</h2>
+      <p class="lead">水多多传媒提供覆盖内容全链路的服务模块。你可以只取一环，也可以把整个内容团队交给我们。</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-card reveal">
+        <div class="svc-num">01 / STRATEGY</div>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><circle cx="12" cy="12" r="5"/><path d="M2 12h4"/><path d="M18 12h4"/></svg></div>
+        <h3>品牌内容策略</h3>
+        <p>从品牌定位与受众洞察出发，梳理内容主题、表达调性与分发节奏，让每一次拍摄都有明确目标。</p>
+        <div class="svc-tags"><i>内容诊断</i><i>主题规划</i><i>叙事框架</i></div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-num">02 / FILM</div>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4Z"/></svg></div>
+        <h3>品牌形象片 / 广告片</h3>
+        <p>电影级摄制与美术执行，为品牌打造可长期使用的主视觉影像资产，适用于官网、发布会与投放。</p>
+        <div class="svc-tags"><i>脚本创作</i><i>导演摄制</i><i>调色混音</i></div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-num">03 / SHORT</div>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 6h2"/></svg></div>
+        <h3>短视频内容矩阵</h3>
+        <p>面向多平台的短视频内容生产与运营，从选题模板到批量产出，帮助品牌保持稳定更新节奏。</p>
+        <div class="svc-tags"><i>选题库</i><i>批量制作</i><i>数据复盘</i></div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-num">04 / LIVE</div>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M5.6 5.6a9 9 0 0 0 0 12.8"/><path d="M18.4 5.6a9 9 0 0 1 0 12.8"/></svg></div>
+        <h3>直播与实时内容</h3>
+        <p>提供直播内容的视觉包装、场景搭建与切片分发，让一场直播沉淀出可复用的内容素材。</p>
+        <div class="svc-tags"><i>场景设计</i><i>视觉包装</i><i>切片分发</i></div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-num">05 / POST</div>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M4 20V10"/><path d="M12 20V4"/><path d="M20 20v-7"/></svg></div>
+        <h3>后期与视觉包装</h3>
+        <p>剪辑、调色、动效、字幕与音效设计一站式完成，统一品牌视觉语言，提升内容的完成度。</p>
+        <div class="svc-tags"><i>剪辑</i><i>动效</i><i>声音设计</i></div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-num">06 / COMMUNITY</div>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3>创作者社区运营</h3>
+        <p>联合导演、摄影、剪辑与内容创作者，组织共创与交流，让好内容在协作中不断发生。</p>
+        <div class="svc-tags"><i>主题共创</i><i>经验分享</i><i>作品展映</i></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 数据 -->
+<section class="sec metrics">
+  <div class="wrap">
+    <div class="metric-grid">
+      <div class="metric reveal"><b data-count="860">0<em>+</em></b><span>累计交付视频作品</span></div>
+      <div class="metric reveal"><b data-count="210">0<em>+</em></b><span>合作品牌与机构</span></div>
+      <div class="metric reveal"><b data-count="48">0<em>h</em></b><span>创意脚本初稿周期</span></div>
+      <div class="metric reveal"><b data-count="98">0<em>%</em></b><span>项目按时交付率</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 作品 -->
+<section class="sec works" id="works">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>作品案例</span>
+      <h2>被看见之前，我们先让它值得被看见</h2>
+      <p class="lead">以下为水多多传媒部分公开案例，覆盖品牌形象、产品短片、城市文旅与生活方式内容。</p>
+    </div>
+    <div class="filter-bar reveal" id="filterBar">
+      <button class="active" data-filter="all">全部</button>
+      <button data-filter="brand">品牌形象</button>
+      <button data-filter="product">产品短片</button>
+      <button data-filter="city">城市文旅</button>
+      <button data-filter="life">生活方式</button>
+    </div>
+    <div class="work-grid" id="workGrid">
+      <article class="work-card reveal" data-cat="brand">
+        <div class="work-thumb">
+          <svg class="bg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d3050"/><stop offset="1" stop-color="#1f6ea8"/></linearGradient></defs><rect width="400" height="300" fill="url(#g1)"/><circle cx="320" cy="60" r="120" fill="#5fc4ff" opacity=".16"/><path d="M0 240 C90 200 150 270 240 230 C320 196 360 260 400 232 L400 300 L0 300Z" fill="#2f9df4" opacity=".4"/></svg>
+          <div class="play-s"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          <span class="dur">02:16</span>
+        </div>
+        <div class="work-body">
+          <div class="cat">品牌形象</div>
+          <h3>《流动的城市》城市品牌形象片</h3>
+          <p>以水为线索串起城市肌理，全片 4K 拍摄，上线一周播放破 200 万。</p>
+        </div>
+      </article>
+      <article class="work-card reveal" data-cat="product">
+        <div class="work-thumb">
+          <svg class="bg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#123a5c"/><stop offset="1" stop-color="#2c86c8"/></linearGradient></defs><rect width="400" height="300" fill="url(#g2)"/><rect x="130" y="80" width="140" height="150" rx="18" fill="#a8e4ff" opacity=".28"/><circle cx="200" cy="150" r="46" fill="#7ad4ff" opacity=".5"/></svg>
+          <div class="play-s"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          <span class="dur">00:45</span>
+        </div>
+        <div class="work-body">
+          <div class="cat">产品短片</div>
+          <h3>「清透」系列产品概念短片</h3>
+          <p>用一滴水的运动轨迹讲述产品质感，投放期点击率提升 42%。</p>
+        </div>
+      </article>
+      <article class="work-card reveal" data-cat="city">
+        <div class="work-thumb">
+          <svg class="bg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a2a45"/><stop offset="1" stop-color="#3f9fd8"/></linearGradient></defs><rect width="400" height="300" fill="url(#g3)"/><circle cx="200" cy="110" r="52" fill="#ffd98a" opacity=".55"/><path d="M0 220 L80 170 L150 220 L230 160 L320 220 L400 180 L400 300 L0 300Z" fill="#0d3050" opacity=".6"/></svg>
+          <div class="play-s"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          <span class="dur">03:08</span>
+        </div>
+        <div class="work-body">
+          <div class="cat">城市文旅</div>
+          <h3>《在水一方》目的地文旅宣传片</h3>
+          <p>航拍与人物叙事结合，呈现目的地的四季，带动淡季客流增长。</p>
+        </div>
+      </article>
+      <article class="work-card reveal" data-cat="life">
+        <div class="work-thumb">
+          <svg class="bg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a4f70"/><stop offset="1" stop-color="#63b8e8"/></linearGradient></defs><rect width="400" height="300" fill="url(#g4)"/><rect x="70" y="120" width="260" height="130" rx="10" fill="#eaf7ff" opacity=".22"/><circle cx="120" cy="90" r="30" fill="#a8e4ff" opacity=".5"/></svg>
+          <div class="play-s"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          <span class="dur">01:32</span>
+        </div>
+        <div class="work-body">
+          <div class="cat">生活方式</div>
+          <h3>「一日慢生活」系列内容企划</h3>
+          <p>以真实生活场景切入，构建可持续更新的生活方式内容栏目。</p>
+        </div>
+      </article>
+      <article class="work-card reveal" data-cat="brand">
+        <div class="work-thumb">
+          <svg class="bg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#08243a"/><stop offset="1" stop-color="#1e6d9e"/></linearGradient></defs><rect width="400" height="300" fill="url(#g5)"/><path d="M0 200 C110 150 160 240 260 190 C330 154 370 220 400 196 L400 300 L0 300Z" fill="#5fc4ff" opacity=".35"/><path d="M0 250 C120 210 180 280 280 240 C340 216 380 262 400 246 L400 300 L0 300Z" fill="#a8e4ff" opacity=".3"/></svg>
+          <div class="play-s"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          <span class="dur">01:58</span>
+        </div>
+        <div class="work-body">
+          <div class="cat">品牌形象</div>
+          <h3>科技品牌年度品牌片《向上流动》</h3>
+          <p>以流动的抽象视觉表达技术演进，用于全球发布会开场。</p>
+        </div>
+      </article>
+      <article class="work-card reveal" data-cat="product">
+        <div class="work-thumb">
+          <svg class="bg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#124a75"/><stop offset="1" stop-color="#2f9df4"/></linearGradient></defs><rect width="400" height="300" fill="url(#g6)"/><g fill="#eaf7ff" opacity=".6"><circle cx="120" cy="100" r="26"/><circle cx="200" cy="140" r="40"/><circle cx="290" cy="90" r="20"/></g></svg>
+          <div class="play-s"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          <span class="dur">00:30</span>
+        </div>
+        <div class="work-body">
+          <div class="cat">产品短片</div>
+          <h3>饮品新品上市 15 秒竖屏短片</h3>
+          <p>为竖屏平台定制的节奏化剪辑，同一素材衍生 6 个版本。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 流程 -->
+<section class="sec process" id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>合作流程</span>
+      <h2>清晰的四步，让创意稳稳落地</h2>
+      <p class="lead">我们尽量把复杂留给自己，把确定性留给你。每个阶段都有明确的交付物与确认节点。</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">01</div><h3>需求沟通</h3><p>了解品牌目标、受众与使用场景，明确内容方向与预算范围。</p></div>
+      <div class="step reveal"><div class="n">02</div><h3>创意策划</h3><p>输出脚本、分镜与视觉参考，确认后再进入制作，减少返工。</p></div>
+      <div class="step reveal"><div class="n">03</div><h3>拍摄制作</h3><p>专业剧组执行，现场把控画面与声音，同步推进后期包装。</p></div>
+      <div class="step reveal"><div class="n">04</div><h3>交付复盘</h3><p>多规格成片交付，并提供数据反馈与后续内容优化建议。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 团队 -->
+<section class="sec team">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>核心团队</span>
+      <h2>一群把影像当成手艺的人</h2>
+      <p class="lead">导演、摄影、编剧、剪辑与内容运营，不同背景的人因为对画面的执念聚在一起。</p>
+    </div>
+    <div class="team-grid">
+      <article class="member reveal">
+        <div class="ava">
+          <svg class="face" viewBox="0 0 200 200"><defs><linearGradient id="a1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dff1ff"/><stop offset="1" stop-color="#9fd4f7"/></linearGradient></defs><rect width="200" height="200" fill="url(#a1)"/><circle cx="100" cy="82" r="34" fill="#2f9df4" opacity=".85"/><path d="M42 190c0-32 26-56 58-56s58 24 58 56Z" fill="#1f6ea8" opacity=".8"/></svg>
+        </div>
+        <div class="info"><h3>林见川</h3><span>联合创始人 / 内容总监</span><p>十二年广告与纪录片经验，擅长把抽象品牌理念转译为具体画面。</p></div>
+      </article>
+      <article class="member reveal">
+        <div class="ava">
+          <svg class="face" viewBox="0 0 200 200"><defs><linearGradient id="a2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eaf7ff"/><stop offset="1" stop-color="#b8e0f7"/></linearGradient></defs><rect width="200" height="200" fill="url(#a2)"/><circle cx="100" cy="82" r="34" fill="#45b8ff" opacity=".85"/><path d="M42 190c0-32 26-56 58-56s58 24 58 56Z" fill="#2f9df4" opacity=".75"/></svg>
+        </div>
+        <div class="info"><h3>周澄</h3><span>导演 / 摄影指导</span><p>镜头语言干净克制，主导多支品牌形象片的视觉呈现。</p></div>
+      </article>
+      <article class="member reveal">
+        <div class="ava">
+          <svg class="face" viewBox="0 0 200 200"><defs><linearGradient id="a3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dff1ff"/><stop offset="1" stop-color="#a8d8f5"/></linearGradient></defs><rect width="200" height="200" fill="url(#a3)"/><circle cx="100" cy="82" r="34" fill="#5fc4ff" opacity=".85"/><path d="M42 190c0-32 26-56 58-56s58 24 58 56Z" fill="#1f8ee0" opacity=".75"/></svg>
+        </div>
+        <div class="info"><h3>苏молодая</h3><span>编剧 / 内容策划</span><p>擅长从真实生活里找切口，让脚本既有情绪也有传播力。</p></div>
+      </article>
+      <article class="member reveal">
+        <div class="ava">
+          <svg class="face" viewBox="0 0 200 200"><defs><linearGradient id="a4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eaf7ff"/><stop offset="1" stop-color="#8fcdf2"/></linearGradient></defs><rect width="200" height="200" fill="url(#a4)"/><circle cx="100" cy="82" r="34" fill="#2f9df4" opacity=".8"/><path d="M42 190c0-32 26-56 58-56s58 24 58 56Z" fill="#0f3a5c" opacity=".7"/></svg>
+        </div>
+        <div class="info"><h3>陈叠</h3><span>后期总监 / 调色师</span><p>把控成片气质与节奏，让素材在剪辑台上真正成为作品。</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 社区 -->
+<section class="sec community" id="community">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>社区动态</span>
+      <h2>镜头之外，我们同样保持流动</h2>
+      <p class="lead">水多多传媒长期运营创作者社区，定期组织主题共创、线下看片会与经验分享，让内容行业的讨论持续发生。</p>
+    </div>
+    <div class="post-grid">
+      <article class="post reveal">
+        <div class="head">
+          <div class="av" style="background:linear-gradient(145deg,#5fc4ff,#2f9df4)">水</div>
+          <div><b>水多多传媒</b><span>2 小时前 · 社区公告</span></div>
+        </div>
+        <p>第 18 期「水的形状」主题共创征集开启。本期关键词是“流动”，欢迎提交 30 秒以上的原创短片，入选作品将在月底线下展映。</p>
+        <div class="foot">
+          <i><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg>268</i>
+          <i><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>42</i>
+        </div>
+      </article>
+      <article class="post reveal">
+        <div class="head">
+          <div class="av" style="background:linear-gradient(145deg,#a8e4ff,#5fc4ff)">周</div>
+          <div><b>周澄</b><span>昨天 · 拍摄手记</span></div>
+        </div>
+        <p>这次拍水，我们没有用高速机，而是用慢门去记录它的方向感。影像有时候不需要看清每一滴水，只需要让人感受到它想去哪儿。</p>
+        <div class="foot">
+          <i><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg>396</i>
+          <i><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>57</i>
+        </div>
+      </article>
+      <article class="post reveal">
+        <div class="head">
+          <div class="av" style="background:linear-gradient(145deg,#7ad4ff,#45b8ff)">陈</div>
+          <div><b>陈叠</b><span>3 天前 · 后期分享</span></div>
+        </div>
+        <p>调色不是把画面变好看，而是让情绪对齐。分享一套我们在水景素材上的调色思路，附 LUT 拆解与前后对比。</p>
+        <div class="foot">
+          <i><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg>512</i>
+          <i><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>88</i>
+        </div>
+      </article>
+    </div>
+    <div class="join-strip reveal">
+      <div>
+        <b>加入水多多创作者社区</b>
+        <span>与 3,200+ 位影像创作者交流选题、素材与项目机会。</span>
+      </div>
+      <a href="#contact" class="btn btn-primary">
+        申请加入
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 价格 -->
+<section class="sec pricing" id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>合作方案</span>
+      <h2>按需组合，找到合适的内容节奏</h2>
+      <p class="lead">以下为常见合作模式示意，具体报价会根据拍摄规模、成片数量与使用周期进行调整。</p>
+    </div>
+    <div class="price-grid">
+      <article class="price reveal">
+        <h3>单支内容</h3>
+        <p class="desc">适合首次合作或有明确单支内容需求的品牌。</p>
+        <div class="amt">¥18k<small>起 / 支</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>创意脚本与分镜设计</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>1 天拍摄执行</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>成片 1 支（含 2 次修改）</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>交付多规格版本</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">咨询方案</a>
+      </article>
+      <article class="price featured reveal">
+        <h3>内容季度包</h3>
+        <p class="desc">适合需要持续更新内容的品牌与团队。</p>
+        <div class="amt">¥68k<small>起 / 季</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>季度内容主题规划</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>6 支短视频 / 1 支形象片</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>集中拍摄 2 天</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>数据复盘与优化建议</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>专属项目经理对接</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">预约排期</a>
+      </article>
+      <article class="price reveal">
+        <h3>年度内容伙伴</h3>
+        <p class="desc">为品牌配置虚拟内容团队，长期陪伴式合作。</p>
+        <div class="amt">定制<small>/ 年</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>年度内容策略与预算规划</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>持续月度内容产出</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>直播与实时内容支持</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>视觉资产库搭建</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>季度共创工作坊</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">深入沟通</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center;margin-inline:auto">
+      <span class="eyebrow"><span class="dot"></span>常见问题</span>
+      <h2>合作前，你可能想知道</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open reveal">
+        <button class="faq-q">水多多传媒能承接多大规模的项目？<span class="pm"><svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>从单支短视频到品牌年度内容合作都可以承接。我们既有小型灵活的摄制组，也能组建覆盖策划、拍摄、后期与运营的完整项目团队，会根据项目规模配置最合适的人力。</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">从沟通到拿到成片一般需要多久？<span class="pm"><svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>单支短视频通常为 2–3 周，品牌形象片为 4–6 周。若项目有明确上线节点，我们会在策划阶段同步排期，并把关键确认节点写进项目计划中。</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">可以只做后期或只提供拍摄团队吗？<span class="pm"><svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>可以。我们的服务模块支持自由组合，你可以只委托剪辑、调色、动效或配音，也可以仅需要拍摄执行团队。前期沟通时说明已有素材与需求即可。</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">成片的版权和使用范围如何约定？<span class="pm"><svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>成片版权与使用范围会在合同中明确约定，包括使用渠道、使用周期与地域范围。涉及音乐、字体、人物肖像等素材授权，我们会在制作前完成确认，避免后续风险。</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">如何加入水多多创作者社区？<span class="pm"><svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>可以通过页面底部的联系表单提交申请，附上个人作品链接与擅长的方向。社区每期主题共创会开放投稿，入选者将获得展映机会与项目合作推荐。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + 表单 -->
+<section class="sec cta-band" id="contact">
+  <div class="wrap cta-inner">
+    <div class="reveal">
+      <span class="eyebrow" style="background:rgba(122,212,255,.1);border-color:rgba(122,212,255,.28);color:#7ad4ff"><span class="dot" style="background:#7ad4ff"></span>开始合作</span>
+      <h2>把你的想法交给水多多传媒</h2>
+      <p>告诉我们你想表达什么，剩下的交给镜头。提交需求后，我们会在 1 个工作日内与你联系。</p>
+      <div class="hero-stats" style="margin-top:34px">
+        <div class="stat"><b style="color:#fff">1<em style="color:#7ad4ff">个工作日</em></b><span style="color:#8fb4cb">需求响应</span></div>
+        <div class="stat"><b style="color:#fff">48<em style="color:#7ad4ff">小时</em></b><span style="color:#8fb4cb">初版脚本</span></div>
+      </div>
+    </div>
+    <form class="contact-form reveal" id="contactForm" novalidate>
+      <div class="row">
+        <div class="field">
+          <label for="name">你的称呼</label>
+          <input type="text" id="name" name="name" placeholder="怎么称呼你" required>
+        </div>
+        <div class="field">
+          <label for="phone">联系方式</label>
+          <input type="tel" id="phone" name="phone" placeholder="手机 / 微信" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="type">项目类型</label>
+        <select id="type" name="type">
+          <option>品牌形象片 / 广告片</option>
+          <option>短视频内容矩阵</option>
+          <option>直播与实时内容</option>
+          <option>后期与视觉包装</option>
+          <option>创作者社区合作</option>
+          <option>其他 / 还不确定</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="msg">简单描述你的需求</label>
+        <textarea id="msg" name="msg" placeholder="例如：我们是一个饮品品牌，想拍一支 30 秒的夏季新品短片……"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">
+        提交需求
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg>
+      </button>
+      <p class="form-note">我们不会把你的信息用于合作之外的用途。</p>
+      <p class="form-ok" id="formOk">已收到你的需求，水多多传媒会尽快与你联系。</p>
+    </form>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brand">
+          <span class="brand-mark">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3.2c3.2 3.4 5.6 6.1 5.6 9.1a5.6 5.6 0 1 1-11.2 0c0-3 2.4-5.7 5.6-9.1Z" fill="#fff" opacity=".95"/>
+              <path d="M9.4 13.6c.7 1.5 2 2.3 3.6 2.3" stroke="#2f9df4" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span>水多多传媒<small>WATERFILM MEDIA</small></span>
+        </a>
+        <p>专注品牌影像与短视频内容制作，用流动的画面，讲述值得被记住的品牌故事。</p>
+        <div class="foot-social">
+          <a href="#contact" aria-label="微信"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></a>
+          <a href="#contact" aria-label="视频平台"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4Z"/></svg></a>
+          <a href="#contact" aria-label="邮件"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>服务</h4>
+        <ul>
+          <li><a href="#services">品牌内容策略</a></li>
+          <li><a href="#services">品牌形象片</a></li>
+          <li><a href="#services">短视频矩阵</a></li>
+          <li><a href="#services">后期视觉包装</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>了解我们</h4>
+        <ul>
+          <li><a href="#about">关于水多多</a></li>
+          <li><a href="#works">作品案例</a></li>
+          <li><a href="#process">合作流程</a></li>
+          <li><a href="#community">社区动态</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系方式</h4>
+        <ul>
+          <li><a href="#contact">合作咨询：hello@waterfilm.cn</a></li>
+          <li><a href="#contact">项目对接：138-0000-0000</a></li>
+          <li><a href="#contact">工作日 09:30 – 18:30</a></li>
+          <li><a href="#contact">城市创意园 B 座 6 层</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2024 水多多传媒 WATERFILM MEDIA. 保留所有权利。</span>
+      <div class="links">
+        <a href="#contact">隐私说明</a>
+        <a href="#contact">合作条款</a>
+        <a href="#top">返回顶部</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 导航滚动状态 */
+  var header = document.getElementById('top');
+  function onScroll(){
+    if(window.scrollY > 24){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* 移动端菜单 */
+  var burger = document.getElementById('burger');
+  var navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', function(){
+    navLinks.classList.toggle('open');
+  });
+  navLinks.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ navLinks.classList.remove('open'); }
+  });
+
+  /* 滚动显现 */
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    reveals.forEach(function(el, i){
+      el.style.transitionDelay = (Math.min(i % 6, 4) * 60) + 'ms';
+      io.observe(el);
+    });
+  }else{
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* 数字滚动 */
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    if(isNaN(target)) return;
+    var suffix = el.querySelector('em') ? el.querySelector('em').outerHTML : '';
+    var dur = 1400, start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.innerHTML = Math.round(target * eased) + suffix;
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var counters = document.querySelectorAll('[data-count]');
+  if('IntersectionObserver' in window){
+    var co = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          animateCount(en.target);
+          co.unobserve(en.target);
+        }
+      });
+    }, {threshold:0.5});
+    counters.forEach(function(el){ co.observe(el); });
+  }else{
+    counters.forEach(animateCount);
+  }
+
+  /* 作品筛选 */
+  var filterBar = document.getElementById('filterBar');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.work-card'));
+  filterBar.addEventListener('click', function(e){
+    var btn = e.target.closest('button');
+    if(!btn) return;
+    Array.prototype.forEach.call(filterBar.children, function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    var f = btn.getAttribute('data-filter');
+    cards.forEach(function(card){
+      var show = (f === 'all') || (card.getAttribute('data-cat') === f);
+      if(show){
+        card.style.display = '';
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(16px)';
+        requestAnimationFrame(function(){
+          card.style.transition = 'opacity .45s ease, transform .45s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'none';
+        });
+      }else{
+        card.style.display = 'none';
+      }
+    });
+  });
+
+  /* FAQ 手风琴 */
+  var faqItems = Array.prototype.slice.call(document.querySelectorAll('.faq-item'));
+  function syncFaq(item){
+    var a = item.querySelector('.faq-a');
+    if(item.classList.contains('open')){
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }else{
+      a.style.maxHeight = '0px';
+    }
+  }
+  faqItems.forEach(function(item){
+    var q = item.querySelector('.faq-q');
+    q.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      faqItems.forEach(function(o){ o.classList.remove('open'); syncFaq(o); });
+      if(!isOpen){ item.classList.add('open'); syncFaq(item); }
+    });
+    syncFaq(item);
+  });
+  window.addEventListener('resize', function(){
+    faqItems.forEach(syncFaq);
+  });
+
+  /* 播放按钮交互（示意） */
+  var playBtn = document.querySelector('.play-btn');
+  if(playBtn){
+    function togglePlay(){
+      playBtn.style.transform = playBtn.style.transform === 'scale(.9)' ? '' : 'scale(.9)';
+      setTimeout(function(){ playBtn.style.transform = ''; }, 200);
+    }
+    playBtn.addEventListener('click', togglePlay);
+    playBtn.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); togglePlay(); }
+    });
+  }
+
+  /* 表单提交 */
+  var form = document.getElementById('contactForm');
+  var ok = document.getElementById('formOk');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('name');
+    var phone = document.getElementById('phone');
+    var valid = true;
+    [name, phone].forEach(function(f){
+      if(!f.value.trim()){
+        f.style.borderColor = '#ff8a8a';
+        valid = false;
+      }else{
+        f.style.borderColor = '';
+      }
+    });
+    if(!valid) return;
+    ok.classList.add('show');
+    form.reset();
+    setTimeout(function(){ ok.classList.remove('show'); }, 5000);
+  });
+})();
+</script>
+</body>
+                                                                                                                                                                                                                                                                                                       </html>
